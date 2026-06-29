@@ -1,0 +1,15 @@
+{
+    "name": "Fetchx",
+    "urdf": "fetch/fetchx_spherized.urdf",
+    "srdf": "fetch/fetch.srdf",
+    "end_effector": "fetch_rarm_end",
+    "resolution": 32,
+    "template": "templates/fk_template.hh",
+    "subtemplates": [
+        {
+            "name": "ccfk",
+            "template": "templates/ccfk_template.hh"
+        }
+    ],
+    "output": "fetchx_fk.hh"
+}
