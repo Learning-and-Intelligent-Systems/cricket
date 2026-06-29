@@ -1,0 +1,15 @@
+{
+    "name": "Pandax",
+    "urdf": "panda/pandax_spherized.urdf",
+    "srdf": "panda/pandax.srdf",
+    "end_effector": "panda_tcp",
+    "resolution": 32,
+    "template": "templates/fk_template.hh",
+    "subtemplates": [
+        {
+            "name": "ccfk",
+            "template": "templates/ccfk_template.hh"
+        }
+    ],
+    "output": "pandax_fk.hh"
+}
