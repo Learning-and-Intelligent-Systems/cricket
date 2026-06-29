@@ -1,0 +1,15 @@
+{
+    "name": "Spot",
+    "urdf": "spot/spotx_spherized.urdf",
+    "srdf": "spot/spot.srdf",
+    "end_effector": "arm_end_effector_link",
+    "resolution": 32,
+    "template": "templates/fk_template.hh",
+    "subtemplates": [
+        {
+            "name": "ccfk",
+            "template": "templates/ccfk_template.hh"
+        }
+    ],
+    "output": "spot_fk.hh"
+}
