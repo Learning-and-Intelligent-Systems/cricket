@@ -1879,4 +1879,22 @@
 
   <!-- BEGIN: wrist cameras + ZED envelope (from rby1-constrained-planning@95dc4c6) -->
   <!-- END -->
+  <!-- BEGIN: wrist cameras (RainbowCam only) -->
+  <link name="link_right_arm_camera">
+      <collision><origin xyz="0 -0.04501 -0.03753" rpy="0 0 0"/><geometry><sphere radius="0.04668"/></geometry></collision>
+  </link>
+  <joint name="right_arm_camera_mount" type="fixed">
+    <parent link="FT_sensor_R"/>
+    <child link="link_right_arm_camera"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link name="link_left_arm_camera">
+      <collision><origin xyz="0 0.04501 -0.03753" rpy="0 0 0"/><geometry><sphere radius="0.04668"/></geometry></collision>
+  </link>
+  <joint name="left_arm_camera_mount" type="fixed">
+    <parent link="FT_sensor_L"/>
+    <child link="link_left_arm_camera"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <!-- END wrist cameras -->
 </robot>

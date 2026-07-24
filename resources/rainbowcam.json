@@ -1,0 +1,15 @@
+{
+    "name": "RainbowCam",
+    "urdf": "rainbow/rainbowcam_spherized_plus.urdf",
+    "srdf": "rainbow/rainbowcam.srdf",
+    "end_effector": "grasp_frame_right",
+    "resolution": 32,
+    "template": "templates/fk_template.hh",
+    "subtemplates": [
+        {
+            "name": "ccfk",
+            "template": "templates/ccfk_template.hh"
+        }
+    ],
+    "output": "rainbowcam_fk.hh"
+}
