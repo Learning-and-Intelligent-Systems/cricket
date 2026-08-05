@@ -540,4 +540,12 @@
     <collision><geometry><sphere radius="0.1044"/></geometry><origin xyz="-0.0021 0.0722 0.1036" rpy="0 0 0"/></collision>
     <collision><geometry><sphere radius="0.1000"/></geometry><origin xyz="-0.1247 0.0679 0.1131" rpy="0 0 0"/></collision>
   </link>
+
+  <!-- Standard TCP frame (HPN docs/gripper_frame_standardization.md) -->
+  <link name="r_gripper_tcp" />
+  <joint name="r_gripper_tcp_joint" type="fixed">
+    <origin rpy="1.57079632679490 0 1.57079632679490" xyz="0.006 0 0"/>
+    <parent link="r_gripper_tool_frame"/>
+    <child link="r_gripper_tcp"/>
+  </joint>
 </robot>

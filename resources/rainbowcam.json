@@ -2,7 +2,7 @@
     "name": "RainbowCam",
     "urdf": "rainbow/rainbowcam_spherized_plus.urdf",
     "srdf": "rainbow/rainbowcam.srdf",
-    "end_effector": "grasp_frame_right",
+    "end_effector": "tcp_right",
     "resolution": 32,
     "template": "templates/fk_template.hh",
     "subtemplates": [

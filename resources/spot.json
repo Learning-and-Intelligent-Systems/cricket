@@ -2,7 +2,7 @@
     "name": "Spot",
     "urdf": "spot/spotx_spherized.urdf",
     "srdf": "spot/spot.srdf",
-    "end_effector": "arm_end_effector_link",
+    "end_effector": "arm_tcp",
     "resolution": 32,
     "template": "templates/fk_template.hh",
     "subtemplates": [

@@ -1897,4 +1897,18 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
   <!-- END wrist cameras -->
+
+  <!-- Standard TCP frame (HPN docs/gripper_frame_standardization.md) -->
+  <link name="tcp_right" />
+  <joint name="tcp_joint_right" type="fixed">
+    <origin rpy="-3.14159265358979 0 1.57079632679490" xyz="0 0 0"/>
+    <parent link="grasp_frame_right"/>
+    <child link="tcp_right"/>
+  </joint>
+  <link name="tcp_left" />
+  <joint name="tcp_joint_left" type="fixed">
+    <origin rpy="-3.14159265358979 0 1.57079632679490" xyz="0 0 0"/>
+    <parent link="grasp_frame_left"/>
+    <child link="tcp_left"/>
+  </joint>
 </robot>

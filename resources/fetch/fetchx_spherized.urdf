@@ -1009,4 +1009,12 @@
 		<parent link="gripper_link" />
 		<child link="fetch_rarm_end" />
 	</joint>
+
+  <!-- Standard TCP frame (HPN docs/gripper_frame_standardization.md) -->
+  <link name="fetch_rarm_tcp" />
+  <joint name="fetch_rarm_tcp_joint" type="fixed">
+    <origin rpy="-3.14159265358979 0 1.57079632679490" xyz="0 0 0"/>
+    <parent link="fetch_rarm_end"/>
+    <child link="fetch_rarm_tcp"/>
+  </joint>
 </robot>

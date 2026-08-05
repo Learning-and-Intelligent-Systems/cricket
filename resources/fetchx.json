@@ -2,7 +2,7 @@
     "name": "Fetchx",
     "urdf": "fetch/fetchx_spherized.urdf",
     "srdf": "fetch/fetch.srdf",
-    "end_effector": "fetch_rarm_end",
+    "end_effector": "fetch_rarm_tcp",
     "resolution": 32,
     "template": "templates/fk_template.hh",
     "subtemplates": [

@@ -224,4 +224,12 @@
     <child link="arm_end_effector_link" />
   </joint>
   <link name="arm_end_effector_link" />
+
+  <!-- Standard TCP frame (HPN docs/gripper_frame_standardization.md) -->
+  <link name="arm_tcp" />
+  <joint name="arm_tcp_joint" type="fixed">
+    <origin rpy="-3.14159265358979 0 1.57079632679490" xyz="0 0 0"/>
+    <parent link="arm_end_effector_link"/>
+    <child link="arm_tcp"/>
+  </joint>
 </robot>

@@ -1,10 +1,15 @@
 {
     "name": "Rainbow",
     "urdf": "rainbow/rainbow_spherized_plus.urdf",
-    "srdf": "rainbow/rainbow.srdf",    
-    "end_effector": "grasp_frame_right",
+    "srdf": "rainbow/rainbow.srdf",
+    "end_effector": "tcp_right",
     "resolution": 32,
     "template": "templates/fk_template.hh",
-    "subtemplates": [{"name": "ccfk", "template": "templates/ccfk_template.hh"}],
+    "subtemplates": [
+        {
+            "name": "ccfk",
+            "template": "templates/ccfk_template.hh"
+        }
+    ],
     "output": "rainbow_fk.hh"
 }
