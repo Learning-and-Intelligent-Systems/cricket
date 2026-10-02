@@ -1,0 +1,10 @@
+{
+    "name": "Droid",
+    "urdf": "droid/droid_spherized.urdf",
+    "srdf": "droid/droid_partial.srdf",
+    "end_effector": "grasp_frame",
+    "resolution": 32,
+    "template": "templates/fk_template.hh",
+    "subtemplates": [{"name": "ccfk", "template": "templates/ccfk_template.hh"}],
+    "output": "droid_fk.hh"
+}
