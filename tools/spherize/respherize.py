@@ -19,7 +19,7 @@ from fit_report import MASTER, hull_samples, link_hulls, protrusion, uncovered_d
 from tight_cover import cover
 
 PAD = 0.002
-FLOORS = {"panda_link0": (-0.015, 0.0)}  # (sphere floor z, cover points above z): the droid scenes' table top is z = -0.02
+FLOORS = {"panda_link0": (0.0005, 0.012)}  # (sphere floor z, cover points above z): spheres stay above the base plane z = 0 -- a PO world has a permanent "floor" body under the base with its top at z = -0.013, which VAMP checks (the exact checker skips it by name)
 
 
 def edge_samples(h, step=0.002):
