@@ -68,3 +68,42 @@ hull, the old camera spheres left 8.4% of it uncovered by up to 9 mm; the new on
 cover all of it. `selfpair_audit`, 4000 confs: no enabled pair misses; link5-wrist_camera
 really collides in 2.6% of confs (2.2% with the old box) and the spheres over-report
 it in 2.2%.
+
+## Rainbow, 2026-10-04 (`resources/rainbow/`, tools in `rainbow/`)
+
+The Rainbow (RB-Y1) inputs were fitted to pre-unification meshes: against
+`rainbow_seiji.urdf` the base and torso_5 hulls stuck out of the spheres by up
+to 47 mm, arm_2/3 by 27 mm, the fingers by 8 mm, while the wheel spheres
+protruded 75 mm and the head sphere 155 mm. `rainbow/pipeline.sh` rebuilds
+them; it needs more than the droid recipe:
+
+- `respherize.py` covers each hull with `tight_cover2.py` (sparse lazy greedy
+  set cover, 3 mm targets, 1 mm radius pad, re-cover until dense independent
+  samples are all inside). Per-link deltas in `make_candidate.sh` (fingers 6,
+  hand/wrist 8, arm_4 and wheels 10, arm_2/3 and lidar 12, base, torso_4/5,
+  arm_0/1 and head 15, torso_0-3 20 mm). `TIGHT` shrinks delta on chosen faces:
+  torso_5's sides near the shoulders (4 mm) and each upper arm's inner face
+  (5 mm), 15 mm apart at the stow conf. `SWEEP` covers the head camera mount
+  over the head's whole pan/tilt range (VAMP has no head DOF). Base, wheels
+  and lidar stay above z = 0.5 mm and are covered from z = 12 mm up. The
+  master's lidar box is added; torso_2's limits follow the master.
+- `make_srdf.py`: every pair that can collide is checked. Disabled: the
+  derived exclusions, pairs rigid in VAMP's model, pairs that never collide
+  (`exact_pairs.py` census of 240k random confs, then `pair_minimize.py`
+  distance minimisation: it found 22 colliding pairs the census missed;
+  `camera_pairs.py` against the swept camera), and torso_5 vs arm_1 (hulls
+  5.1 mm apart at the stow conf; over 240k confs every conf where only that
+  pair collides is still rejected through torso_5 vs arm_2).
+- Kernel: the flat cricket template would unroll 394k sphere-pair tests per
+  function. `templates/{fk,ccfk}_template_clustered.hh` screen each link pair
+  through sphere clusters (an anchor sphere + constant radius, from the
+  config's `clusters`, which `make_cricket_config.py` derives from a first
+  pass with the `_loop` templates) and run the sphere tests in small
+  out-of-line loops (an inline loop per cluster pair took clang over an hour
+  per function; out of line, about a minute).
+
+Numbers (20k confs in a table scene, against the master's hulls): false-valid
+953 -> 0, false-invalid among exact-valid confs 15.2% -> 10.2% (typical
+postures), env-only false-invalid 12.9% -> 2.9%; kernel verdicts equal a
+direct sphere computation on all 20k (`vamp_bench2.py spheres`). validate()
+3.2 -> 8.9 us on valid confs.
