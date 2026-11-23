@@ -1,0 +1,19 @@
+[workspace]
+name = "cricket"
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[dependencies]
+pinocchio = "*"
+cppad = "*"
+eigen = "*"
+cgal = "*"
+inja = "*"
+nlohmann_json = "*"
+cmake = "*"
+cxx-compiler = "*"
+ninja = "*"
+fmt = "*"
+pkg-config = "*"
+patch = "*"
+git = "*"
