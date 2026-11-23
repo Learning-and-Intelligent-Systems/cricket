@@ -1,6 +1,6 @@
 """Second cricket pass: add the per-link sphere CLUSTERS (indexed like the
 first pass's link_names, sphere indices as cricket numbers them) to the
-configuration, for templates/{fk,ccfk}_template_h.hh.
+configuration, for templates/{fk,ccfk}_template_clustered.hh.
     make_cricket_config.py PASS1_OUT.json URDF NAME EE OUT.json [CLUSTER_SIZE]"""
 import json
 import math
@@ -36,8 +36,8 @@ def main(p1, urdf, name, ee, out, size=8, urdf_rel=None, srdf_rel=None):
         "srdf": srdf_rel,
         "end_effector": ee,
         "resolution": 32,
-        "template": "templates/fk_template_h.hh",
-        "subtemplates": [{"name": "ccfk", "template": "templates/ccfk_template_h.hh"}],
+        "template": "templates/fk_template_clustered.hh",
+        "subtemplates": [{"name": "ccfk", "template": "templates/ccfk_template_clustered.hh"}],
         "output": f"{name.lower()}_fk.hh",
         "clusters": clusters,
     }
